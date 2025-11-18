@@ -22,6 +22,8 @@ public class ProcessoAvaliativoModel {
 
     private String nome;
 
+    private Boolean ativo;
+
     @OneToMany(mappedBy = "processoAvaliativo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FormularioModel> formularios;
 }
