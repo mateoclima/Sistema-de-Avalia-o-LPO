@@ -3,11 +3,10 @@ package br.com.ufpr.sistemaAvaliacao.services;
 import br.com.ufpr.sistemaAvaliacao.repository.FormularioDAO;
 import br.com.ufpr.sistemaAvaliacao.repository.PerfilDAO;
 import br.com.ufpr.sistemaAvaliacao.repository.ProcessoAvaliativoDAO;
-// Importamos os Models necessários
 import br.com.ufpr.sistemaAvaliacao.models.FormularioModel;
 import br.com.ufpr.sistemaAvaliacao.models.PerfilModel;
 import br.com.ufpr.sistemaAvaliacao.models.ProcessoAvaliativoModel;
-import jakarta.persistence.EntityManager; // Essencial para a transação JPA
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,5 +60,9 @@ public class FormularioService {
         }
 
         return salvo;
+    }
+
+    public List<FormularioModel> listarTodos() {
+        return formularioDAO.findAll();
     }
 }
