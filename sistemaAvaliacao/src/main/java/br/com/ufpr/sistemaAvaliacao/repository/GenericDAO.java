@@ -1,12 +1,15 @@
 package br.com.ufpr.sistemaAvaliacao.repository;
 
 import jakarta.persistence.EntityManager;
+import lombok.Getter;
+
 import java.io.Serializable;
 import java.util.List;
 
 
 public abstract class GenericDAO<T, ID extends Serializable> {
 
+    @Getter
     private EntityManager entityManager;
     private final Class<T> entityClass;
 
@@ -41,4 +44,5 @@ public abstract class GenericDAO<T, ID extends Serializable> {
         String jpql = "SELECT e FROM " + entityClass.getSimpleName() + " e";
         return entityManager.createQuery(jpql, entityClass).getResultList();
     }
+
 }
